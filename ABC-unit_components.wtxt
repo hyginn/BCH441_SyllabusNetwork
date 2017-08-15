@@ -1,0 +1,154 @@
+<div id="BIO">
+<div class="b1">
+ABC-unit components
+</div>
+
+;Textual components for ABC learning units.
+
+{{Vspace}}
+
+__TOC__
+
+
+
+== Notes ==
+
+{{Vspace}}
+
+<section begin=notes-no_prerequisites />
+This unit has no prerequisites.
+<section end=notes-no_prerequisites />
+
+<section begin=notes-external_prerequisites />
+You need the following preparation before beginning this unit. If you are not familiar with this material from courses you took previously, you need to prepare yourself from other information sources:
+<section end=notes-external_prerequisites />
+
+<section begin=notes-prerequisites />
+You need to complete the following units before beginning this one:
+<section end=notes-prerequisites />
+
+
+
+== Deliverables ==
+
+{{Vspace}}
+
+<section begin=deliverables-milestone />
+*<b>No separate deliverables</b>: This unit collects other units and has no deliverables on its own.
+<section end=deliverables-milestone />
+
+<section begin=deliverables-time_management />
+*<b>Time management</b>: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.
+<section end=deliverables-time_management />
+
+<section begin=deliverables-journal />
+*<b>Journal</b>: Document your progress in your [[FND-Journal|course journal]].
+<section end=deliverables-journal />
+
+<section begin=deliverables-insights />
+*<b>Insights</b>: If you find something particularly noteworthy about this unit, make a note in your [[ABC-Insights|insights! page]].
+<section end=deliverables-insights />
+
+<section begin=deliverables-tasks />
+*<b>"Tasks"</b>: Specific deliverables for this unit are described in the "Task" sections.
+<section end=deliverables-tasks />
+
+<section begin=deliverables-tasks_only />
+*<b>Specified as "Tasks"</b>: There are no general deliverables for this unit; specific deliverables are described in the "Task" sections.
+<section end=deliverables-tasks_only />
+
+
+== Evaluation ==
+
+{{Vspace}}
+
+<section begin=eval-none />
+<b>Evaluation: NA</b><br />
+:This unit is not evaluated for course marks.
+<section end=eval-none />
+
+
+<section begin=eval-oral_exam />
+<b>Evaluation: Oral exam</b><br />
+:When you have completed this unit, write an email to the instructor and schedule an oral exam to have it evaluated.
+<section end=eval-oral_exam />
+
+<section begin=eval-quiz />
+<b>Evaluation: Quiz</b><br />
+:When you have completed this unit, write an email to the instructor and schedule a quiz to have it evaluated.
+<section end=eval-quiz />
+
+<section begin=eval-presentation />
+<b>Evaluation: Presentation</b><br />
+:When you have completed this unit, write an email to the instructor and schedule a 5 minute class-presentation on your results to have it evaluated.
+<section end=eval-presentation />
+
+<section begin=eval-self_assessment_code />
+<b>Evaluation: Self assessment for code</b><br />
+:When you have completed developing the required code for this unit, self-assess it according to the marking rubric for "Code development". Notify the instructor of your mark by email and be sure to include a link to your lab journal entry that describes your progress and a link to your completed code including its tests.
+<section end=eval-self_assessment_code />
+
+<section begin=eval-self_assessment_questions />
+<b>Evaluation: Self assessment for self-evaluation questions</b><br />
+:When you have completed writing a self-evaluation question, self-assess it according to the marking rubric for "Questions". Notify the instructor of your mark by email and be sure to include a link to your lab journal entry that describes your progress and contains the question and sample answer.
+<section end=eval-self_assessment_questions />
+
+<section begin=eval-self_assessment_report />
+<b>Evaluation: Self assessment for (technical) reports</b><br />
+:When you have completed writing a self-evaluation question, self-assess it according to the marking rubric for "Reports". Notify the instructor of your mark by email and be sure to include a link to the lab journal entry that describes your progress and contains a link to your report.
+<section end=eval-self_assessment_report />
+
+<section begin=eval-self_assessment_journal />
+<b>Evaluation: Self assessment for lab journal entries</b><br />
+:When you have completed this unit, self-assess it according to the marking rubric for "Journal entries". Notify the instructor of your mark by email and be sure to include a link to the lab journal entry that describes your progress and justifies your mark.
+<section end=eval-self_assessment_journal />
+
+== Contents ==
+
+<section begin=milestone />
+This is a "milestone unit". Its purpose is merely to collect a number of preparatory units into a single, common prerequisite. It has no contents of its own; you are expected to be familiar and competent with all preparatory material at this point.
+<section end=milestone />
+
+
+== Notes ==
+
+<section begin=notes />
+<references />
+<section end=notes />
+
+
+
+== ask! ==
+
+{{Vspace}}
+
+<section begin=ABC-unit_ask />
+
+----
+
+{{Vspace}}
+
+<b>If in doubt, ask!</b> If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+----
+
+{{Vspace}}
+
+<section end=ABC-unit_ask />
+
+
+== Footer ==
+
+{{Vspace}}
+
+<section begin=ABC-unit_footer />
+
+{{CC-BY}}
+
+<section end=ABC-unit_footer />
+
+[[Category:Bioinformatics]]
+
+</div>
+
+<!-- [END] -->
