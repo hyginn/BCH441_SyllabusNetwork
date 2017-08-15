@@ -1,0 +1,121 @@
+BIN-Mindmap	A bioinformatics and computational biology mindmap
+FND-Cargo_Cult	Cargo Cult science, Cargo Cult bioinformatics
+BIN-Info_Sources	Wikipedia , NAR, Bioinformatics.ca, PubMed, Citation index
+FND-Journal	How to keep a lab journal
+ABC-Insights	Keeping a collection of course-related insights
+FND-Collaborating	Wikis, Google docs, Slack
+FND-Communicating	Mailing list vs. forum, alternatives
+FND-Netiquette	Etiquette for the Internet and for this course
+FND-Technical_questions	asking technical questions on mailing lists and forums
+FND-Biocomputing_setup	Setup for biocomputing: Xcode, R and RStudio, python, homebrew, TeX ...
+FND-Computer_literacy	Paths, folders and files for all three platforms; Project directory
+FND-Backups	Data backup technologies and best practice
+FND-Wiki_editing	Wiki editing, namespaces, user page setup, a course journal stub page, and an insights! stub page
+RPR-Installation	R and RStudio, installation, IDE, working with R and git version control, installing packages
+RPR-Setup	R scripts and R projects, the history mechanism and why not to use it, .Rprofile to customize startup behaviour, the working directory
+RPR-Help	The R help system, other help resources
+RPR-Console	The console, arrow keys, ctrl-enter to execute code
+RPR-Syntax_basics	Simple commands and basic syntax, operators, variables, class, mode, and attributes
+RPR-Scope	What is “scope”? The R workspace, global and local variables
+RPR-Function	Anatomy of a function anatomy, arguments, parameters and values; the concept of functional programming
+RPR-Objects-vectors	Types of R objects: scalars, vectors and matrices
+RPR-Objects-Dataframes	Dataframes
+RPR-Objects-Lists	Lists
+RPR-Subsetting	Subsetting with the [], [[]], and $ operators
+RPR-Control_structures	if, else if, ifelse, for, and while
+RPR-RegEx	Regular expressions
+RPR-Coding_style	R coding style
+RPR-Debugging	Debugging with RStudio
+BIN-Abstractions	Elements of abstractions for biology
+FND-Cell_cycle	the yeast cell cycle
+BIN-Systems	System concept and definition
+FND-Databases	Database systems
+FND-Data_management	Data management principles
+BIN-Identifiers	Biological identifiers
+BIN-Formats_reference	Common data formats in molecular biology
+FND-Data_models	Relational data models - what, why, how
+BIN-NCBI	The NCBI databases and services
+BIN-EBI	The EBI databases and services, Uniprot
+BIN-PDB	The RCSB PDB database and services
+BIN-UCSC	The UCSC genome database and services
+BIN-MISC	HuGO HGNC, Genecards, OMIM, STRING, ...
+BIN-Sequence	The 20 amino acids and the one-letter code
+RPR-Biostrings	Introduction to the biostrings bioconductor package
+RPR-FASTA	The FASTA format and its aligned and multi-fasta variants
+FND-Genetic_code	Features and optimality of the genetic code
+FND-STA-Probability	Event probabilities from first principles, probabilites from total enumeration (with R examples)
+FND-STA-Probability_distribution	Nature of a probability distribution, integrals, important distributions, comparing observed and simulated probability distributions, the Kolmogorov-Smirnov test
+FND-STA-Significance	Deriving probability distributions from simulation, interpreting in terms of significance thresholds
+RPR-Genetic_code_optimality	Simulating genetic code optimality
+BIN-SEQA-Concepts	composition comparison conservation consensus cooperation compatibility context; analysis tools at bioinformatics.ca and ExPASy
+BIN-SEQA-Composition	Sequence analysis by composition (with R examples)
+FND-Homology	Concepts of homology
+BIN-ALI-Similarity	sequence similarity: measurement via MDM. BLOSUM 62 matrix, affine gap penalties
+BIN-ALI-Alignment	What is an “alignment”?
+BIN-ALI-Dotplot	Computation and interpretation of dotplots
+BIN-ALI-Optimal_sequence_alignment	NWS (optimal global) and SW (optimal local) algorithms, alignment via EMBOSS tools in practice, interpretation of alignments
+BIN-ALI-Internal_repeats	Examples, RADAR, other tools
+BIN-ALI-BLAST	BLAST algorithm and Web interface, interpretation of BLAST alignments
+BIN-ALI-PSI_BLAST	PSI-BLAST in practice, interpretation, significance and profile corruption
+BIN-ALI-Domains_by_sequence	Domain discovery by multiple sequence alignment, HMMER algorithm, Domain databases, Pfam, SMART, CDART
+BIN-ALI-MSA	Multiple sequence alignment
+BIN-SX-Concepts	Structure determination - X-ray crystallography, NMR, EM
+BIN-SX-PDB	Practical work with the PDB
+BIN-SX-Stereo_vision	A stereo-vision tutorial
+BIN-SX-Chimera	UCSF Chimera
+BIN-SX-Small_molecules	A small-molecule structure tutorial
+FND-Information_theory	Statistical thermodynamics and information theory
+BIN-SX-Superposition	Structure superposition and superposition-derived alignment
+BIN-SX-Domains	Structural domains, domain databases - CATH and SCOP
+BIN-SX-Motifs	Structure motifs - the CSA, continuous “classical” motifs, generalized motifs (Schematikon), and non-local motifs
+BIN-FUNC-Concepts	The concept of function, function abstraction; function ontology
+BIN-FUNC-Databases	EC numbers, GO, MSigDB, EcoCyc, KEGG
+BIN-FUNC-GO	Ontologies in knowledge engineering, GO and GOA
+BIN-FUNC-Semantic_similarity	Semantic similarity of terms in ontologies, using GO and GOA with R
+BIN-FUNC-Annotation	Function annotation strategies, DAVID and GSEA
+BIN-SYS-Concepts	Systems Models
+BIN-PHYLO-Concepts	Phylogenetic trees, orthologues and paralogues, horizontal gene transfer (HGT)
+BIN-PHYLO-Tree_building	Building phylogenetic trees, preparing an MSA, calculating the tree, tree visualization
+BIN-PHYLO-Tree_analysis	Species trees, gene trees and the importance of naming, Speciation and duplication signatures
+BIN-PHYLO-Conservation_scores	Quantifying conservation scores in trees
+BIN-PHYLO-Selective_pressure	Expectation and observation of mutation patterns
+BIN-SX-Prediction_concepts	Concepts of structure prediction
+BIN-SX-Homology_modeling	Homology modeling: alignment, alignment, alignment.
+BIN-SX-Molecular_forcefields	Principles and components - molecular mechanics, and statistical pseudo-energies.
+FND-STA-Information_theory	Information theory applied to molecular systems, “statistical free energy”
+FND-EDA-Regression	Linear and non-linear regression
+BIN-SX-MD	Molecular dynamics trajectories, equilibrium, means and states; estimating entropy
+BIN-SX-Ab_initio_prediction	''Ab initio'' prediction principles; Rosetta, i-TASSER, EVfold; CASP
+BIN-Genome-Sequencing	Sequencing technologies, highly parallel, single-molecule and single-cell
+BIN-Genome-NGS_bioinformatics	Common workflows of NGS
+BIN-Genome-Annotation	EnCode
+BIN-Genome-Databases	UCSC
+BIN-Genome-Browsers	UCSC, GMod; in practice
+BIN-Genome-Human_genomics	Cancer genomics efforts, TCGA, Firehose, 10,000 genomes, driver and passeneger mutations; IntoGEN, HotNet;
+FND-EXPR-Measurements	Microarray, QPCR, RNAseq
+BIN-EXPR-GEO	NCBI GEO: finding profiles
+RPR-GEO2R	Programming for analysis of GEO datasets
+FND-STA-Multiple_testing	Multiple testing problem. Concepts, Bonferroni correction and FDR
+BIN-EXPR-DE	Discovering differentially expressed genes
+FND-PPI-Measurements	Detecting PPIs
+FND-PPI-Physical_vs_genetic	The fundamental difference between physical and “genetic” interactions. Topology of pathways.
+FND-PPI-Interactome	Totality, context; date-and party, dynamics
+BIN-PPI-Databases	IntAct, iRef,
+FND-MAT-Graph_theory	Principles of graph theory
+FND-MAT-Network_science	Concepts in network science
+BIR-iGraph	Network analysis with iGraph
+FND-EDA-Concepts	Concepts of Exploratory Data Analysis (EDA)
+FND-EDA-Data_import	Automating queries, Importing data, Integrating data
+FND-EDA-Plotting	Plotting tutorial and reference
+FND-EDA-Dimension_reduction	PCA and model-based correlations
+FND-EDA-Clustering	Clustering: hierarchical, k-means and smarter approaches; t-SNE
+FND-EDA-Hypothesis_testing	Types of hypotheses, p-values and significance
+FND-EDA-Features	Extracting features from data
+FND-EDA-Machine_learning	Principles of machine learning
+RPR-Optimization	Analyzing and optimizing R-code
+FND-CSC-Software_engineering	Software engineering in the research lab
+FND-CSC-SPN	Structured Process Notation (SPN) for workflow modelling
+FND-CSC-Unit_testing	Unit testing
+FND-CSC-Integration_testing	Integration testing
+RPR-Testing	Code testing in R with the testthat package
+RPR-Introduction	Introduction to R
