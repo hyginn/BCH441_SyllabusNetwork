@@ -1,0 +1,170 @@
+<div id="BIO">
+<div class="b1">
+External prerequisites and preparation
+</div>
+
+{{Vspace}}
+
+This page lists prerequisites and preparation '''outside''' of the learning units of this course. This is material you would typically learn in a prerequisite course, but we are not prescribing how you actually acquire this knowledge resp. skills. However, do take this material seriously and make sure you are competent regarding the topics listed below - all evaluation in this course is cumulative, and if you are lacking prior knowledge you may be disappointed with the marks you achieve for your work.
+
+Individual learning units will note which of these prerequisites apply specifically - on this page the topics are collected for convenience and to make the preparation we expect from you explicit.
+
+{{Vspace}}
+
+__TOC__
+
+{{Vspace}}
+
+== Science ==
+
+{{Vspace}}
+
+<!--
+<section begin=sci />
+include("FND-prerequisites.wtxt", section = "inquiry")
+include("FND-prerequisites.wtxt", section = "writing")
+<section end=sci />
+-->
+
+<section begin=inquiry />
+*<b>Inquiry</b>: The scientific method; evidence based reasoning; how to design, execute and document an experiment; Conjecture, hypothesis and theory.
+<section end=inquiry />
+
+<section begin=writing />
+*<b>Writing</b>: Basic essay and report writing skills. How to format your submitted materials, how to quote, cite and avoid plagiarism.
+<section end=writing />
+
+{{Vspace}}
+
+== Mathematics and Statistics ==
+
+{{Vspace}}
+
+<!--
+<section begin=mat />
+include("FND-prerequisites.wtxt", section = "calculus")
+include("FND-prerequisites.wtxt", section = "geometry")
+include("FND-prerequisites.wtxt", section = "probability")
+<section end=mat />
+-->
+
+<section begin=calculus />
+*<b>Calculus</b>: functions and equations; polynomial functions, logarithms, trigonometric functions; integrals and derivatives; theorem and proof.
+<section end=calculus />
+
+<section begin=geometry />
+*<b>Geometry</b>: length, area, volume; Euclidian and non-Euclidian space.
+<section end=geometry />
+
+<section begin=probability />
+*<b>Probability</b>: event, probability, hypothesis and significance.
+<section end=probability />
+
+{{Vspace}}
+
+== Chemistry ==
+
+{{Vspace}}
+
+<!--
+<section begin=che />
+include("FND-prerequisites.wtxt", section = "atoms")
+include("FND-prerequisites.wtxt", section = "molecules")
+include("FND-prerequisites.wtxt", section = "physchem")
+<section end=che />
+-->
+
+<section begin=atoms />
+*<b>Properties of atoms</b>: the periodic system, covalent and non-covalent interactions; naming atoms and molecules;
+<section end=atoms />
+
+<section begin=molecules />
+*<b>Properties of molecules</b>: molecular structure, the hydrophobic effect; stereochemistry; steric complementarity as the foundation of molecular function.
+<section end=molecules />
+
+<section begin=physchem />
+*<b>Physical chemistry</b>: Kinetics and equilibria, transition states, chemical reactions; enthalpy, entropy and free energy; acid-base equilibria, Boltzmann's law.
+<section end=physchem />
+
+{{Vspace}}
+
+== Biochemistry ==
+
+{{Vspace}}
+
+<!--
+<section begin=bch />
+include("FND-prerequisites.wtxt", section = "biomolecules")
+include("FND-prerequisites.wtxt", section = "metabolism")
+include("FND-prerequisites.wtxt", section = "cellular_components")
+<section end=bch />
+-->
+
+<section begin=biomolecules />
+*<b>Biomolecules</b>: The molecules of life; nucleic acids and amino acids; the genetic code; protein folding; post-translational modifications and protein biochemistry; membrane proteins; biological function.
+<section end=biomolecules />
+
+<section begin=metabolism />
+*<b>Metabolism</b>: Enzymatic catalysis and control; reaction sequences and pathways; chemiosmotic coupling; catabolic- and anabolic pathways.
+<section end=metabolism />
+
+<section begin=cellular_components />
+*<b>Organelles</b>: Compartmentalization, organelles and structures of the cell; the extracellular matrix.
+<section end=cellular_components />
+
+{{Vspace}}
+
+== Molecular and Cellular Biology ==
+
+{{Vspace}}
+
+<!--
+<section begin=mcb />
+include("FND-prerequisites.wtxt", section = "central_dogma")
+include("FND-prerequisites.wtxt", section = "cell_cycle")
+include("FND-prerequisites.wtxt", section = "evolution")
+<section end=mcb />
+-->
+
+<section begin=central_dogma />
+*<b>The Central Dogma</b>: Regulation of transcription and translation; protein biosynthesis and degradation; quality control.
+<section end=central_dogma />
+
+<section begin=cell_cycle />
+*<b>Cell cycle</b>: Replication control and mechanism; phases of the cell-cycle; checkpoints and apoptosis.
+<section end=cell_cycle />
+
+<section begin=evolution />
+*<b>Evolution</b>: Theory of evolution; variation, neutral drift and selection.
+<section end=evolution />
+
+{{Vspace}}
+
+
+== Notes ==
+
+<section begin=notes />
+<references />
+<section end=notes />
+
+
+{{Vspace}}
+
+----
+
+{{Vspace}}
+
+<!-- NOTE:
+ALL PROJECT ASSETS ARE TO BE PUBLISHED AS OPEN-SOURCE SOFTWARE.
+DOCUMENTATION AND DESIGN DOCUMENTS ARE TO BE LICENSED UNDER THE CREATIVE COMMONS BY 4.0 LICENSE.
+SOFTWARE IS TO BE LICENSED UNDER THE GNU GPL 3.0 -->
+
+[[File:CreativeCommonsBy.png|link=http://creativecommons.org/licenses/by/4.0/]] <small>This copyrighted work is licensed under a [http://creativecommons.org/licenses/by/4.0/ Creative Commons Attribution 4.0 International License]. </small>
+
+<section end=ABC-unit_footer />
+
+[[Category:ABC-units]]
+
+</div>
+
+<!-- [END] -->
