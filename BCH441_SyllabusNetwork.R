@@ -1,84 +1,250 @@
 # BCH441_SyllabusNetwork.R
 #
-# Purpose:
+# Purpose: Initialize and build a syllabus network as a series of R-scripts
+#             and contents-files that create Wikitext.
 #
-# Version: 0.0
+# Version: 0.1
 #
-# Date:    2017  MM  DD
-# Author:  Boris Steipe (boris.steipe@utoronto.ca)
+# Date:    2017-08-06
+# Author:  Boris Steipe <boris.steipe@utoronto.ca>
 #
 # V 0.1    First code
 #
 # TODO:
+#    Explore MediaWiki API to upload files from components directory
 #
+
+# == FUNCTIONS =================================================================
+
+# utility functions are loaded from .utilities.R
+
+# == PROCESS ===================================================================
+
+# 1: generating components files from topics
+# Initial expansion of topics to .wtxt files in the ../components directory
+# The components structure is taken from the 00-unit-metascript file. It
+# is populated only with ID and keywords from the 01-topics file. The result
+# is a set of component files that contain the contents for the unit.
+
+# myTopics <- readLines(con = "../units/01-topics.txt")
+# for (topic in myTopics) {
+#   s <- unlist(strsplit(topic, "\t"))
+#   ID <- s[1]
+#   KEYWORDS <- s[2]
+#   source("00-unit_metascript.R")
+# }
+
+# 2: manually edit components. Add prerequisites, title ...
+
+# 3: generate wikitext
+# Process components to wikitext, overwrite. Open all components-files in the
+# directory and build a wikitext source file according to the structure and
+# include-directives speciefied in src2wtext.R
+mySources <- list.files(path = "../components",
+                        pattern = ".*\\.components\\.wtxt$",
+                        full.names = TRUE)
+
+for (SRC in mySources) {
+  source("src2wtxt.R")
+}
+
+# === PATCHES ==================================================================
+# Patches of components files.
+
+
+## === Patch in separate ask! section before footer
+#mySources <- list.files(path = "../test",
+# mySources <- list.files(path = "../components",
+#                         pattern = ".*\\.components\\.wtxt$",
+#                         full.names = TRUE)
 #
-# == HOW TO WORK WITH THIS FILE ================================================
+# for (SRC in mySources) {
+#   txt <- readLines(SRC)
 #
-#  Go through this script line by line to read and understand the
-#  code. Execute code by typing <cmd><enter>. When nothing is
-#  selected, that will execute the current line and move the cursor to
-#  the next line. You can also select more than one line, e.g. to
-#  execute a block of code, or less than one line, e.g. to execute
-#  only the core of a nested expression.
+#   # identify section to be patched:
+#   #    first is first line to remove.
+#   #    last is last line to remove.
+#   patt <- "^== Footer ==$"
+#   first <- grep(patt, txt)
+#   if (length(first) == 0) {
+#     stop("PANIC: remove anchor beginning not found.")
+#   } else if (length(first) > 1) {
+#     stop("PANIC: remove anchor beginning found more than once.")
+#   }
+#   pre <- txt[1:(first - 1)]
 #
-#  Edit code, as required, experiment with options, or just play.
-#  Especially play.
+#   patt <- "^<section begin=footer />$"
+#   last <- grep(patt, txt)
+#   if (length(last) == 0) {
+#     stop("PANIC: remove anchor end not found.")
+#   } else if (length(last) > 1) {
+#     stop("PANIC: remove anchor end found more than once.")
+#   }
+#   post <- txt[(last + 1):length(txt)]
 #
-#  DO NOT simply source() this whole file!
+#   insert <- character()
+#   insert <- c(insert, "== ask! ==")
+#   insert <- c(insert, "<section begin=ask! />")
+#   insert <- c(insert,
+#               'include("ABC-unit_components.wtxt", section = "ABC-unit_ask")')
+#   insert <- c(insert, "<section end=ask! />")
+#   insert <- c(insert, "")
+#   insert <- c(insert, "== Footer == <!-- patched 01 -->")
+#   insert <- c(insert, "<section begin=footer />")
 #
-#  If there are portions you don't understand, use R's help system,
-#  Google for an answer, or ask me. Don't continue if you don't
-#  understand what's going on. That's not how it works ...
+#   txt <- c(pre, insert, post)
 #
-#  Once you have typed and executed the function init(), you will find a file
-#  called myScript.R in the project directory.
+#   writeLines(txt, SRC)
+# }
+## === end ask! section patch
+
+## === Patch in new type section before status
+# mySources <- list.files(path = "../test",
+# mySources <- list.files(path = "../components",
+#                         pattern = ".*\\.components\\.wtxt$",
+#                         full.names = TRUE)
 #
-#  Open it, you can place all of your code-experiments and notes into that
-#  file. This will be your "Lab Journal" for this session.
+# for (SRC in mySources) {
+#   txt <- readLines(SRC)
 #
-# ==============================================================================
-
-" Introduction:
-  ...
-"
-
-
-# ==============================================================================
-#        PART ONE: REVIEW
-# ==============================================================================
-
-
-
-
-# == SECTION ===================================================================
-
-
-# == Subsection
-
-# Continue ...
-
-
-
-
-
-
-
-
-# ==============================================================================
-#        APPENDIX: OUTLOOK
-# ==============================================================================
-"There are many more functions for ... that this tutorial did not cover. You should know about the following. Look up the function and write a short bit of example code that uses it:"
-
-?subset
-?sweep
-?with     # ... and within()
-
-"Then you should know about the following packages. Open the vignette and browse through it. You should know be able to come up with least one use-case where the package functions would be useful:
-
-   https://cran.r-project.org/web/packages/magrittr/
-"
+#   # identify section to be patched:
+#   #    first is first line to remain.
+#   #    last is last line to remain.
+#   patt <- "^<section end=title />$"
+#   first <- grep(patt, txt)
+#   if (length(first) == 0) {
+#     stop("PANIC: anchor beginning not found.")
+#   } else if (length(first) > 1) {
+#     stop("PANIC: anchor beginning found more than once.")
+#   }
+#   pre <- txt[1:first]
+#
+#   patt <- "^== Status ==$"
+#   last <- grep(patt, txt)
+#   if (length(last) == 0) {
+#     stop("PANIC: anchor end not found.")
+#   } else if (length(last) > 1) {
+#     stop("PANIC: anchor end found more than once.")
+#   }
+#   post <- txt[last:length(txt)]
+#
+#   insert <- character()
+#   insert <- c(insert, "")
+#   insert <- c(insert, "== Type ==")
+#   insert <- c(insert, "UNIT / INTEGRATOR / MILESTONE")
+#   insert <- c(insert, "<section begin=type />")
+#   insert <- c(insert, "UNIT")
+#   insert <- c(insert, "<section end=type />")
+#   insert <- c(insert, "")
+#
+#   txt <- c(pre, insert, post)
+#
+#   writeLines(txt, SRC)
+# }
+# === end type section patch
 
 
 
+
+# create a label-width attribute column for cytoscape
+
+# setup a dummy plot for calculating strwidth in user coordinates
+# This is scaled so that the string "BIN-PDB" comes out at 120 units.
+plot(1, xlim=c(0,784), ylim=c(0,784))
+# strwidth("BIN-PDB")
+OUTFILE <- "ABC-units.strwidth.txt"
+SIFfileName <- "ABC-units.sif_4.sif"
+SIFdf <- read.delim(SIFfileName,
+                    header = FALSE,
+                    stringsAsFactors = FALSE)
+allNodes <- sort(unique(c(SIFdf$V1, SIFdf$V3)))
+nodeWidths <- character()
+for (i in seq_along(allNodes)) {
+  nodeWidths[i] <- paste0(allNodes[i],
+                          "\t",
+                          as.character(round(strwidth(allNodes[i]))))
+}
+writeLines(nodeWidths, OUTFILE)
+# Next, use the file -> import -> Table -> File option in cytoscape
+# to read the file, use Advanced options and turn off to use the first
+# row as headers.  Then click on the "mapping" field of the style, select the
+# column you just imported, and select "passtrough mapping". The value in the
+# column for each node is then "passed through" directly to be used as the style
+# attribute for that node.
+
+
+# create a color attribute column for cytoscape labels
+
+OUTFILE <- "ABC-units.label-colours.txt"
+SIFfileName <- "ABC-units.sif_4.sif"
+SIFdf <- read.delim(SIFfileName,
+                    header = FALSE,
+                    stringsAsFactors = FALSE)
+allNodes <- sort(unique(c(SIFdf$V1, SIFdf$V3)))
+colour <- character()
+for (i in seq_along(allNodes)) {
+  SRC <- sprintf("../components/%s.components.wtxt", allNodes[i])
+  status <- include(SRC, section = "status", addMarker = FALSE)
+  type   <- include(SRC, section = "type",   addMarker = FALSE)
+
+  if (type == "INTEGRATOR") {
+    nodeColour <- "#e19fa7"
+  } else if (type == "MILESTONE") {
+    nodeColour <- "#97bed5"
+  } else if (type == "UNIT") {
+    if (status == "STUB") {
+      nodeColour <- "#f2fafa"
+    } else if (status == "DEV") {
+      nodeColour <- "#d9ead5"
+    } else if (status == "LIVE") {
+      nodeColour <- "#b3dbce"
+    } else if (status == "REVISE") {
+      nodeColour <- "#f4d7b7"
+    } else {
+      stop(sprintf("PANIC: Status attribute not recognized in %s"), SRC)
+    }
+  } else {
+    stop(sprintf("PANIC: Type attribute not recognized in %s"), SRC)
+  }
+  colour[i] <- paste0(allNodes[i],
+                          "\t",
+                          nodeColour)
+}
+writeLines(colour, OUTFILE)
+# Next, use the file -> import -> Table -> from File option in cytoscape
+# to read the file, use Advanced options and turn off to use the first
+# row as headers. Then click on the "mapping" field of the style, select the
+# column you just imported, and select "passtrough mapping". The value in the
+# column for each node is then "passed through" directly to be used as the style
+# attribute for that node.
+
+
+
+
+
+
+
+# === TESTS ====================================================================
+SRC <- "testComponents.txt"
+
+include(SRC, section = "missing-begin")
+include(SRC, section = "more-than-one-begin")
+include(SRC, section = "missing-end")
+include(SRC, section = "more-than-one-end")
+
+include(SRC, section = "single-value")
+as.numeric(include(SRC, section = "single-value", addMarker = FALSE))
+
+include(SRC, section = "two-lines")
+
+include(SRC, section = "one-level-include-beginning")
+include(SRC, section = "one-level-include-middle")
+include(SRC, section = "one-level-include-ending")
+include(SRC, section = "one-level-include-two-includes")
+
+include(SRC, section = "infinite-recursion")
+include(SRC, section = "circular-recursion-A")
+
+include(SRC, section = "two-level-include-A")
 
 # [END]
