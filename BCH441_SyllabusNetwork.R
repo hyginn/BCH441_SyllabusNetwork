@@ -39,7 +39,7 @@
 # 3: generate wikitext
 # Process components to wikitext, overwrite. Open all components-files in the
 # directory and build a wikitext source file according to the structure and
-# include-directives speciefied in src2wtext.R
+# include-directives specified in src2wtext.R
 mySources <- list.files(path = "../components",
                         pattern = ".*\\.components\\.wtxt$",
                         full.names = TRUE)
@@ -144,7 +144,7 @@ for (SRC in mySources) {
 # === end type section patch
 
 
-
+# === UPDATE THE UNITS MAP =====================================================
 
 # create a label-width attribute column for cytoscape
 
@@ -158,19 +158,21 @@ SIFdf <- read.delim(SIFfileName,
                     header = FALSE,
                     stringsAsFactors = FALSE)
 allNodes <- sort(unique(c(SIFdf$V1, SIFdf$V3)))
-nodeWidths <- character()
+
+nodeWidths <- "name\tstrwidth" # strwidth attribute vector header row
+
 for (i in seq_along(allNodes)) {
-  nodeWidths[i] <- paste0(allNodes[i],
+  nodeWidths[(i + 1)] <- paste0(allNodes[i],
                           "\t",
                           as.character(round(strwidth(allNodes[i]))))
 }
 writeLines(nodeWidths, OUTFILE)
-# Next, use the file -> import -> Table -> File option in cytoscape
-# to read the file, use Advanced options and turn off to use the first
-# row as headers.  Then click on the "mapping" field of the style, select the
-# column you just imported, and select "passtrough mapping". The value in the
-# column for each node is then "passed through" directly to be used as the style
-# attribute for that node.
+# Next, use the file -> import -> Table -> File option in cytoscape to read the
+# file. We created the correct header row, so just use default options and click
+# ok. Then click on the "mapping" field of the style, select the column you just
+# imported, and select "passtrough mapping". The value in the column for each
+# node is then "passed through" directly to be used as the style attribute for
+# that node.
 
 
 # create a color attribute column for cytoscape labels
@@ -181,7 +183,9 @@ SIFdf <- read.delim(SIFfileName,
                     header = FALSE,
                     stringsAsFactors = FALSE)
 allNodes <- sort(unique(c(SIFdf$V1, SIFdf$V3)))
-colour <- character()
+
+colour <- "name\tcolour" # colour attribute vector header row
+
 for (i in seq_along(allNodes)) {
   SRC <- sprintf("../components/%s.components.wtxt", allNodes[i])
   status <- include(SRC, section = "status", addMarker = FALSE)
@@ -206,19 +210,90 @@ for (i in seq_along(allNodes)) {
   } else {
     stop(sprintf("PANIC: Type attribute not recognized in %s"), SRC)
   }
-  colour[i] <- paste0(allNodes[i],
+  colour[(i + 1)] <- paste0(allNodes[i],
                           "\t",
                           nodeColour)
 }
 writeLines(colour, OUTFILE)
-# Next, use the file -> import -> Table -> from File option in cytoscape
-# to read the file, use Advanced options and turn off to use the first
-# row as headers. Then click on the "mapping" field of the style, select the
+
+# Next, use the file -> import -> Table -> from File option in cytoscape to read
+# the file, click ok. Then click on the "mapping" field of the style, select the
 # column you just imported, and select "passtrough mapping". The value in the
 # column for each node is then "passed through" directly to be used as the style
 # attribute for that node.
 
 
+# === WORKFLOWS ================================================================
+
+# === UPDATE MAP ===============================================================
+
+# Edit unit components in components directory
+# Edit Network in Cytoscape
+#
+# Export Network to File -> SIF
+#
+# Update prerequisites: step through the section in wtxt2graph.R to compute
+#    a new prereq block from the information found in the SIF file and
+#    overwrite the original components file with the new block.
+#
+# Create new label box sizes:
+#    Execute the code above to produce a new "ABC-units.strwidth.txt"
+# Create new label colours:
+#    Execute the code above to produce a new "ABC-units.label-colours.txt"
+# Add attribute columns to cytoscape session: delete existing and import new.
+#    Since the styles have already been defined, that should automatically
+#    update the display.
+#
+# Use the zoom-out-to-display-all option.
+# Rename the existing "ABC-units_map.svg" to a backup version.
+# Export Network to file, choose SVG format.
+#
+# Run the code in linkSVG.R
+#
+# Upload "ABC-units_map.svg" to the Wiki.
+#
+
+# ==== ADD A NEW UNIT ================================================
+#
+# - copy an existing component file with STUB status
+# - give it the new name
+# - add a record to ABCunitsStatus
+# - add a node by that name in Cytoscape
+# - add the relationships
+# - update the map
+# - edit contents ...
+#
+
+# ==== DELETE A UNIT ================================================
+# - delete the components file
+# - delete the record in ABCunitsStatus
+# - delete the node in cytoscape
+# - update the map
+# - delete the page on the Wiki
+#
+
+# ==== RENAME A UNIT ================================================
+# - rename the components file
+# - rename the file in ABCunitsStatus
+# - rename the node in Cytoscape
+# - update the map
+# - move the page on the Wiki
+
+
+
+# ==== UPLOAD FILES TO THE WIKI ================================================
+# Upload a wikitext file to the Wiki via the text API
+#
+
+# Prepare connection
+API  <- include("~/.MWcredentials.txt",
+                section = "course_api",
+                addMarker = FALSE)
+MWEDITTOKEN <- getMWedittoken(API)
+
+# update all units on the Wiki for which the modified date is after the update
+# date recorded in ABCunitsStatus
+source("updateComponents.R")
 
 
 
