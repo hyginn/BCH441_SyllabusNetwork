@@ -9,11 +9,12 @@ src2wtxt <- function(SRC) {
   # This file implements the actual structure of the Wiki page.
   #
   # Parameters: SRC char fully qualified path of the components file.
-  # Value: None. Side-effect is to write a .wtxt file to the WTXTDIR directory.
+  # Value:   char   the Wikitext
   #
-  # V 1.0
+  # V 1.1
   #
   # Versions:
+  #    1.1 Return character string, don't write to file.
   #    1.0 Final version
   #    0.1 First version
   # Author:
@@ -21,15 +22,6 @@ src2wtxt <- function(SRC) {
   # Date:
   #    2017-08-15
   # ============================================================================
-
-
-  WTXTDIR <- "../units/"
-
-  OUTFILE <- sprintf("%s%s.wtxt",
-                     WTXTDIR,
-                     include(SRC,
-                             section = "id",
-                             addMarker = FALSE))
 
   out <- character()
 
@@ -189,8 +181,39 @@ src2wtxt <- function(SRC) {
   out <- c(out, '</div>')  # End Framework div
   out <- c(out, '<!-- [END] -->')
 
-  writeLines(out, con = OUTFILE)
+  return(paste0(out, collapse = "\n"))
 
 }
+
+# === Legacy: function to break up contents into chunks. This never worked well
+#       because MW parses upon save ... and it's not necessary since
+#       text length in POST body is not limited, only in GET or POST URLs
+#       (8910 characters).
+#
+# chunkContents <- function(s, mode = "lines") {
+#   # break the string s into chunks of lines that are not longer
+#   # than MAXLINES lines
+#
+#
+#   if (mode == "lines") {
+#     MAXLINES <- 10
+#     v <- unlist(strsplit(s, "\n"))
+#     idx <- seq(1, length(v), by = MAXLINES)
+#     nBlocks <- length(idx)
+#     idx <- c(idx, (length(v) + 1))
+#     blocks <- character()
+#     for (i in 1:nBlocks) {
+#       blocks[i] <- paste0(v[idx[i]:(idx[(i+1)] - 1)], collapse = "\n")
+#     }
+#   } else if (mode == "sections") {
+#     s  <- gsub("<!--.+?-->", "", s) # strip comments
+#     blocks <- unlist(strsplit(s, "(?=\\n=)", perl = TRUE))
+#     blocks <- blocks[- grep("^\\n$", blocks)]
+#   } else {
+#     stop("PANIC: Unknown mode")
+#   }
+#
+#   return(blocks)
+# }
 
 # [END]
