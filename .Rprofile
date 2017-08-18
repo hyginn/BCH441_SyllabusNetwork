@@ -2,6 +2,8 @@ init <- function() {
     source(".init.R")
 }
 
+library(httr)  # to POST files to the Wiki
+
 cat("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
 cat("    =================")
 cat("\n\n")
