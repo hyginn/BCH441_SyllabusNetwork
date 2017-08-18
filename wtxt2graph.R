@@ -88,12 +88,16 @@ for (i in 1:nrow(myEdgelist)) {
 
 writeLines(mySIF, con = "ABC-units.sif")
 
-# =====
+# ==============================================================================
+
+# UPDATE PREREQUISITES
+
+# ==============================================================================
 #  Update unit prerequisites from sif file produced by cytoscape. This updates
 #  the listed prerequisites in the components if any new edges have been added
 #  and/or existing edges have been deleted. It does not create new components
 #  files, if new nodes have been introduced, rather the existence of new node
-#  names throwas an error - create new nodes by hand first.
+#  names throws an error - create new nodes by hand first.
 # ==============================================================================
 # 1. step: import .sif file into SIFdf
 
@@ -103,7 +107,7 @@ SIFdf <- read.delim(SIFfileName,
                     stringsAsFactors = FALSE)
 
 # Cytoscape added new edges are not of type "requires" - so the following test
-# does not work. #e merely drop the relationship column.
+# does not work. We merely drop the relationship column.
 # if (! all(SIFdf$V2 == "requires")) {
 #   stop("PANIC: At least one relationship is not \"requires\".")
 # }
@@ -122,7 +126,7 @@ allComponentFiles <- list.files(path = myComponentDirectory,
 
 allUnits <- gsub(paste0(myComponentDirectory, "/"), "", allComponentFiles)
 allUnits <- gsub("\\.components\\.wtxt$", "", allUnits)
-any(duplicated(allUnits))
+any(duplicated(allUnits)) # Must be FALSE
 
 SIFunits <- unique(SIFdf$unit)
 for (i in seq_along(SIFunits)) {
@@ -149,7 +153,11 @@ for (i in seq_along(allUnits)) {
   }
 }
 
-# for each unique unit that has prerequisites
+# for each unique unit that has prerequisites:
+#   - Recreate the entire prerequisites block from the information
+#        found in the SIF file.
+#   - Overwrite the original components file.
+#
 for (id in SIFunits) {
   # read the components file into txt
   currentFile <- paste0(myComponentDirectory, "/", id, ".components.wtxt")
