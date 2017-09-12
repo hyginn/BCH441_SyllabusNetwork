@@ -42,11 +42,11 @@ You need to complete the following units before beginning this one:
 <section end=deliverables-time_management />
 
 <section begin=deliverables-journal />
-*<b>Journal</b>: Document your progress in your [[FND-Journal|course journal]].
+*<b>Journal</b>: Document your progress in your [[FND-Journal|Course Journal]]. Some tasks may ask you to include specific items in your journal. Don't overlook these.
 <section end=deliverables-journal />
 
 <section begin=deliverables-insights />
-*<b>Insights</b>: If you find something particularly noteworthy about this unit, make a note in your [[ABC-Insights|insights! page]].
+*<b>Insights</b>: If you find something particularly noteworthy about this unit, make a note in your [[ABC-Insights|'''insights!''' page]].
 <section end=deliverables-insights />
 
 <section begin=deliverables-tasks />
@@ -66,6 +66,18 @@ You need to complete the following units before beginning this one:
 <b>Evaluation: NA</b><br />
 :This unit is not evaluated for course marks.
 <section end=eval-none />
+
+
+<section begin=eval-TBD />
+<b>Evaluation: TBD</b><br />
+:This unit can be submitted for evaluation for a maximum of 5 marks. Details TBD.
+<section end=eval-TBD />
+
+
+<section begin=eval-INT-TBD />
+<b>Evaluation: Integrated Unit</b><br />
+:This unit should be submitted for evaluation for a maximum of 10 marks. Details TBD.
+<section end=eval-INT-TBD />
 
 
 <section begin=eval-oral_exam />

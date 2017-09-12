@@ -146,7 +146,8 @@ for (SRC in mySources) {
 
 # === UPDATE THE UNITS MAP =====================================================
 
-# create a label-width attribute column for cytoscape
+# create a label-width attribute column for cytoscape to properly fit labels
+# into boxes
 
 # setup a dummy plot for calculating strwidth in user coordinates
 # This is scaled so that the string "BIN-PDB" comes out at 120 units.
@@ -175,7 +176,7 @@ writeLines(nodeWidths, OUTFILE)
 # that node.
 
 
-# create a color attribute column for cytoscape labels
+# create a color attribute column for cytoscape labels to label unit status
 
 OUTFILE <- "ABC-units.label-colours.txt"
 SIFfileName <- "ABC-units.sif_4.sif"
@@ -222,6 +223,37 @@ writeLines(colour, OUTFILE)
 # column for each node is then "passed through" directly to be used as the style
 # attribute for that node.
 
+# create a border attribute column for cytoscape to mark whether a unit is
+# evaluated
+
+OUTFILE <- "ABC-units.borderwidth.txt"
+SIFfileName <- "ABC-units.sif_4.sif"
+SIFdf <- read.delim(SIFfileName,
+                    header = FALSE,
+                    stringsAsFactors = FALSE)
+allNodes <- sort(unique(c(SIFdf$V1, SIFdf$V3)))
+
+borderWidths <- "name\tborderwidth" # strwidth attribute vector header row
+
+for (i in seq_along(allNodes)) {
+  evalStatus <- include(ID2SRC(allNodes[i]),
+                  section = "evaluation",
+                  addMarker = FALSE)
+  if (length(grep("Evaluation: NA", evalStatus)) > 0){
+    borderWidths[(i + 1)] <- paste0(allNodes[i], "\t", "0")
+  } else {
+    borderWidths[(i + 1)] <- paste0(allNodes[i], "\t", "1")
+  }
+}
+writeLines(borderWidths, OUTFILE)
+
+# Next, use the file -> import -> Table -> File option in cytoscape to read the
+# file. We created the correct header row, so just use default options and click
+# ok. Then click on the "mapping" field of the style, select the column you just
+# imported, and select "discrete mapping". Then double-click the empty cells in various discrete-value rows, enter 0 in the "0" row and 10 in the "1" row.
+
+
+
 
 # === WORKFLOWS ================================================================
 
@@ -246,37 +278,42 @@ writeLines(colour, OUTFILE)
 #
 # Use the zoom-out-to-display-all option.
 # Rename the existing "ABC-units_map.svg" to a backup version.
-# Export Network to file, choose SVG format.
+# Export Network Image to file, choose SVG format.
 #
 # Run the code in linkSVG.R
 #
 # Upload "ABC-units_map.svg" to the Wiki.
+# FTP a copy to the assets directory.
 #
 
 # ==== ADD A NEW UNIT ================================================
 #
 # - copy an existing component file with STUB status
 # - give it the new name
-# - add a record to ABCunitsStatus
+# - add a record to ABCunitsStatus ( addUnitABCunitsStatus("") )
 # - add a node by that name in Cytoscape
 # - add the relationships
 # - update the map
+# - create new PPT-DEV file
 # - edit contents ...
 #
 
 # ==== DELETE A UNIT ================================================
 # - delete the components file
-# - delete the record in ABCunitsStatus
+# - delete the record in ABCunitsStatus ( deleteUnitABCunitsStatus("") )
 # - delete the node in cytoscape
 # - update the map
+# - distribute PPT-DEV contents and delete file
 # - delete the page on the Wiki
 #
 
 # ==== RENAME A UNIT ================================================
 # - rename the components file
-# - rename the file in ABCunitsStatus
+# - Update ID,  title and keywords
+# - rename the unit in ABCunitsStatus ( renameUnitABCunitsStatus("") )
 # - rename the node in Cytoscape
 # - update the map
+# - rename the PPT-DEV file and edit the title slide
 # - move the page on the Wiki
 
 

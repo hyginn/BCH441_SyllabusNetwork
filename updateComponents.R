@@ -10,6 +10,7 @@ myComponents <- list.files(path = CPATH,
 
 load("ABCunitsStatus.Rdata")
 
+
 for (SRC in myComponents) {
 
   lastUpload <- ABCunitsStatus$lastUpload[ABCunitsStatus$file == SRC]
@@ -19,10 +20,15 @@ for (SRC in myComponents) {
     ID <- gsub(paste0(CPATH, "/"), "", SRC)
     ID <- gsub("\\.components\\.wtxt$", "", ID)
 
+    cat(sprintf("Uploading %s ...", ID))
+
     if (postSRCtoMW(ID, API, MWEDITTOKEN) == "Success") {
       # update Status file
       ABCunitsStatus$lastUpload[ABCunitsStatus$file == SRC] <- Sys.time()
     }
+
+    cat(sprintf(" ... done.\n"))
+
   }
 }
 

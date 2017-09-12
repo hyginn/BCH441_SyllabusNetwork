@@ -30,10 +30,14 @@ renameUnitABCunitsStatus <- function(oldID, newID) {
 
   oldFile <- ID2SRC(oldID)
   if (! any(ABCunitsStatus$file == oldFile)) {
-    stop("renameUnitABCunitsStatus > PANIC: no file with oldIDin ABCunitsStatus")
+    stop("renameUnitABCunitsStatus > PANIC: no file with oldID in ABCunitsStatus")
   }
 
-  ABCunitsStatus$file[ABCunitsStatus$file == oldFile] <- ID2SRC(newID)
+  newFile <- ID2SRC(newID)
+  if (any(ABCunitsStatus$file == newFile)) {
+    stop("renameUnitABCunitsStatus > PANIC: file with newID already in ABCunitsStatus")
+  }
+  ABCunitsStatus$file[ABCunitsStatus$file == oldFile] <- newFile
 
   # Save updated status file
   save(ABCunitsStatus, file = "ABCunitsStatus.Rdata")

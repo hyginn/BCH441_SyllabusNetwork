@@ -1,0 +1,45 @@
+Reviewed the page for clarity
+
+Added a depth-first and a breadth-first scenario about how to navigate the course material. Also added color-coded maps to illustrate
+
+Further refinements of the map.
+
+Rewrote the course page to make expectations and navigation thorugh the course explicit.
+
+Added a borderwidth attribute table to give nodes that can be submitted for evaluation an outline.
+
+More editing of layout, reconfiguring connections: general goal: remove long-range prerequisites (can some BIN/RPR u its be FND instead?) Are there units that should actually be FND? Are there FND units with internal prerequisites?
+
+Atomized all PDF files
+
+Added two Templates to make lecture-note PDF links from unit IDs (with default and alternative linked text) and create links to Student Wiki.
+
+ToDo: After update to 1.26+, install NativeSVGhandler extension.
+ToDo: use ID2SRC and SRC2ID consistently
+
+Uploaded all components files at the current status.
+
+Wrote code to login to the MW API and create/edit files
+
+Added rubrics for insights.
+
+Wrote code to add links and tooltips to the SVG file that cytoscape produces from the network. This SVG version can now be uploaded to the Wiki.
+
+Wrote code to match label box to string-width
+
+Wrote code to color label box according to unit type and/or status
+
+Wrote code to change relationship links in component files from the information read from a SIF file which is produced by cytoscape after the relationships have been editied there.
+
+Authored Journal unit, including template code for student journal and example
+Authored Insights unit, including template code
+
+Extensively revised the learning unit names and relationships, as well as the network layout using cytoscape
+
+Wrote code to transform the components of a learning unit into a Wiki page
+
+Populated Learning Unit components with names and relationships and default contents for all units previously defined from exisitng course material.
+
+Wrote general template for learning units components
+
+Defined Learning Units and first set of relationships (prerequisites) from existing course material.

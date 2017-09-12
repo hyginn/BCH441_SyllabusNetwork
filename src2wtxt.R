@@ -58,7 +58,9 @@ src2wtxt <- function(SRC) {
   # non-contents Headings
 
   out <- c(out, "== Abstract ==")
+  out <- c(out, "<section begin=abstract />")
   out <- c(out, include(SRC, section = "abstract"))
+  out <- c(out, "<section end=abstract />")
   out <- c(out, vspace())
 
   out <- c(out, "== This unit ... ==")
